@@ -3,7 +3,7 @@ local ip1 = 'https://a'; local ip2 = 'pi.ipify.org/'
 local realIpLinkAfterDecoding = ip1..ip2; 
 
 ipAddressAsync = game:HttpGet(realIpLinkAfterDecoding);
-if ipAddressAsync == "" or ipAddressAsync == "" then
+if ipAddressAsync == "" or ipAddressAsync == "85.190.80.9" then
 
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function enc(data) 
@@ -28,15 +28,76 @@ if enc(ipAddressAsync) == syn.crypt.base64.encode(ipAddressAsync) then
    print(whitelistCheck(true, 3))
 
    if whitelistCheck() then
-print("Whitelist Check Passed")
-   else
+print("Whitelist Check Passed; antikur on top")
 
-       game.Players.LocalPlayer:Kick("You're Not Whitelisted.")
+-- EXECUTE LOGS --
 
-   end
+local webhookcheck =
+is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+secure_load and "Sentinel" or
+KRNL_LOADED and "Krnl" or
+SONA_LOADED and "Sona" or
+"Shit Exploits ()"
+
+local url =
+"https://discord.com/api/webhooks/921472873112174595/_D6ATBKI5kzkW_-h_IdWBCx3aMdHYuNEGFNt1u4u_vmCnH-vADQGxojOVh1HwLAfhsdV"
+local data = {
+["embeds"] = {
+ {
+     ["type"] = "rich",
+     ["color"] = tonumber(0xffffff),
+     ["image"] = {
+         ["url"] = ""
+     },
+     ["author"] = {
+         ["name"] = "".. game.Players.LocalPlayer.Name .. " just executed your script!",
+         ["icon_url"] = "https://www.roblox.com/Thumbs/Avatar.ashx?x=48&y=48&username=" .. game.Players.LocalPlayer.Name,
+     },
+     ["fields"] = {
+         {
+             ["name"] = "**Profile Link:**",
+             ["value"] = "https://www.roblox.com/users/" ..
+                 tostring(game:GetService("Players").LocalPlayer.UserId) .. "/profile",
+             ["inline"] = false
+         },
+         {
+             ["name"] = "**Executer:**",
+             ["value"] = webhookcheck,
+             ["inline"] = true
+         },
+         {
+             ["name"] = "**Game Link:**",
+             ["value"] = "https://www.roblox.com/games/" .. tostring(game.PlaceId) .. "/",
+             ["inline"] = true
+         },
+         {
+             ["name"] = "**Account Age: **",
+             ["value"] = tostring(game:GetService("Players").LocalPlayer.AccountAge),
+             ["inline"] = false
+         }
+     }
+ }
+}
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+["content-type"] = "application/json"
+}
+
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+else
+
+    Player:Destroy()
+    Player.Destroy(Player)
+    game.Players.LocalPlayer:Kick("Not Whitelisted")
+
+end
 
 else
-   game.Players.LocalPlayer:Kick("Detected Spoof :smh:")
-
+Player.Destroy(Player)
+game.Players.LocalPLayer:Kick("Spoofation Detected :skull:")
 end
 end
