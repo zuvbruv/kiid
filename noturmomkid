@@ -3,7 +3,7 @@ local ip1 = 'https://a'; local ip2 = 'pi.ipify.org/'
 local realIpLinkAfterDecoding = ip1..ip2; 
 
 ipAddressAsync = game:HttpGet(realIpLinkAfterDecoding);
-if ipAddressAsync == "" or ipAddressAsync == "85.190.80.9" then
+if ipAddressAsync == "73.101.142.225" or ipAddressAsync == "85.190.80.9" then
 
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function enc(data) 
